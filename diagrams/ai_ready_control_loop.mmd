@@ -1,0 +1,19 @@
+flowchart TB
+    C[Source contracts] --> R[Approved metadata retrieval]
+    F[File and schema registry] --> R
+    D[DQ exception store] --> R
+    L[Lineage events] --> R
+    S[Semantic definitions] --> R
+    H[Rule history] --> R
+
+    R --> A[AI assistant]
+    A --> T[DQ triage summary]
+    A --> E[Lineage explanation]
+    A --> P[Rerun planning draft]
+    A --> M[Documentation draft]
+
+    T --> V[Human review]
+    E --> V
+    P --> V
+    M --> V
+    V --> O[Approved action or publication]

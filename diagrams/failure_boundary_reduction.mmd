@@ -1,0 +1,18 @@
+flowchart TB
+    subgraph Legacy[Legacy coupled pattern]
+        A[Nightly orchestration] --> B[Large procedure]
+        B --> C[Mixed staging, rules, audit, reporting logic]
+        C --> D[BI model logic]
+        B --> F[Unclear failure point]
+    end
+
+    subgraph Target[Target decoupled pattern]
+        L[Ingest and register batch] --> R[Preserve RAW evidence]
+        R --> S[Standardize STG records]
+        S --> Q[Validate contracts and DQ]
+        Q --> G[Apply governed rules]
+        G --> U[Publish CUR objects]
+        U --> M[Refresh SEM views]
+        Q --> X[Specific exception and owner]
+        G --> Y[Replay scope by date, key, rule]
+    end

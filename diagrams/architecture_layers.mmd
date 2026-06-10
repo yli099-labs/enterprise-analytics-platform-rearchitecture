@@ -1,0 +1,15 @@
+flowchart LR
+    S1[Source files] --> L[LANDING]
+    S2[Manual rule inputs] --> L
+    S3[Reference extracts] --> L
+
+    L --> R[RAW evidence]
+    R --> T[STG typed and standardized]
+    T --> C[CTRL registries, lifecycle, rules, DQ, lineage]
+    C --> U[CUR governed facts, dimensions, bridges]
+    U --> M[SEM thin BI and semantic serving]
+
+    C --> E[DQ exceptions]
+    C --> N[Lineage and replay metadata]
+    N --> A[AI-assisted operations]
+    E --> O[Owner review]
