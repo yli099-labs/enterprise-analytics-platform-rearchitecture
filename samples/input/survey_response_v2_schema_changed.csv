@@ -1,0 +1,3 @@
+source_file_name,response_id,submitted_at,visit_date,exhibit_code,score_value,visit_reason,channel
+survey_v2_2026_02.csv,RSP-101,2026-02-01T12:00:00,2026-02-01,ZONE-A,5,learning,mobile
+survey_v2_2026_02.csv,RSP-102,2026-02-01T14:15:00,2026-02-01,ZONE-C,4,leisure,kiosk

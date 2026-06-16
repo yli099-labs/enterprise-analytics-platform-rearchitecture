@@ -1,0 +1,4 @@
+dq_rule_id,severity,layer,source_contract,business_key,detected_value,expected_condition,disposition_status
+DQ_TXN_001,warning,STG,SRC_TXN_EVENTS_V1,EVT-1002|1,duplicate natural key,latest batch retained,open
+DQ_CTRL_001,error,CTRL,SRC_MANUAL_MAPPING_V1,location_to_zone|LOC-02,MAP_002 overlaps MAP_003,non-overlapping active effective windows,open
+DQ_SCHEMA_001,warning,LANDING,SRC_SURVEY_WORKBOOK_V1,survey_v2_2026_02.csv,missing satisfaction_score and new score_value/channel,registered schema review before curated load,open

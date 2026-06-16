@@ -1,0 +1,6 @@
+mapping_id,business_key,source_value,target_value,effective_from,effective_to,is_active,updated_at
+MAP_001,location_to_zone,LOC-01,ZONE-A,2026-01-01,2026-01-31,Y,2026-01-03T08:00:00
+MAP_002,location_to_zone,LOC-02,ZONE-B,2026-01-01,2026-01-20,Y,2026-01-03T08:00:00
+MAP_003,location_to_zone,LOC-02,ZONE-C,2026-01-15,2026-02-28,Y,2026-01-10T09:30:00
+MAP_004,product_to_segment,STD,Standard Ticket,2026-01-01,,Y,2026-01-04T12:00:00
+MAP_005,product_to_segment,FAM,Family Package,2026-01-01,,Y,2026-01-04T12:00:00

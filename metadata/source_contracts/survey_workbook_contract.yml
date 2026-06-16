@@ -1,0 +1,27 @@
+contract_id: SRC_SURVEY_WORKBOOK_V1
+contract_version: 1
+source_name: survey_workbook
+sample_file: samples/input/survey_response_v1.csv
+drift_samples:
+  - samples/input/survey_response_v2_schema_changed.csv
+delivery_pattern: periodic_workbook_snapshot
+analytical_priority: governed_context
+schema_drift_policy: register_new_schema_and_hold_curated_publication
+required_columns:
+  - source_file_name
+  - response_id
+  - submitted_at
+  - visit_date
+  - exhibit_code
+  - satisfaction_score
+  - visit_reason
+optional_columns: []
+expected_types:
+  submitted_at: timestamp
+  visit_date: date
+  satisfaction_score: integer
+key_columns:
+  - response_id
+duplicate_policy: latest_submitted_at_wins
+late_arrival_policy: restate_impacted_survey_period
+quarantine_policy: hold_unregistered_schema_versions_for_owner_review

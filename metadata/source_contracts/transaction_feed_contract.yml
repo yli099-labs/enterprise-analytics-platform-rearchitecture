@@ -1,0 +1,31 @@
+contract_id: SRC_TXN_EVENTS_V1
+contract_version: 1
+source_name: transaction_events
+sample_file: samples/input/transaction_events.csv
+delivery_pattern: daily_delta
+analytical_priority: core
+schema_drift_policy: quarantine_breaking_change_register_additive
+required_columns:
+  - source_file_name
+  - batch_id
+  - event_id
+  - line_id
+  - event_ts
+  - business_date
+  - product_code
+  - ticket_type
+  - quantity
+  - net_amount
+  - source_status
+optional_columns: []
+expected_types:
+  event_ts: timestamp
+  business_date: date
+  quantity: integer
+  net_amount: decimal
+key_columns:
+  - event_id
+  - line_id
+duplicate_policy: latest_batch_wins
+late_arrival_policy: merge_by_business_key_and_batch_time
+quarantine_policy: reject_missing_required_or_unparseable_business_date

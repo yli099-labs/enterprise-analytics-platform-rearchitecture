@@ -1,0 +1,4 @@
+rule_history_id,business_key,source_value,target_value,row_hash,valid_from_ts,valid_to_ts,is_current
+RH_001,location_to_zone,LOC-01,ZONE-A,8AC7B4E9A5F2D001,2026-01-03T08:00:00,,Y
+RH_002,location_to_zone,LOC-02,ZONE-B,0C12E9B14A8D71AB,2026-01-03T08:00:00,2026-01-10T09:30:00,N
+RH_003,location_to_zone,LOC-02,ZONE-C,93D13C7B661F09AD,2026-01-10T09:30:00,,Y

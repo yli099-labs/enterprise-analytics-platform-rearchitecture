@@ -1,0 +1,29 @@
+lineage_id: LIN_CUR_DAILY_VISITORSHIP_V1
+curated_object: CUR_DAILY_VISITORSHIP
+semantic_object: SEM_DAILY_VISITORSHIP
+grain:
+  - business_date
+  - analytics_entity_code
+source_edges:
+  - source_contract: SRC_SENSOR_COUNTS_V1
+    role: primary_measure_source
+    join_keys:
+      - business_date
+      - location_code
+  - source_contract: SRC_MANUAL_MAPPING_V1
+    role: effective_dated_entity_mapping
+    join_keys:
+      - location_code
+      - effective_date_window
+  - source_contract: SRC_OPENING_HOURS_V1
+    role: open_hours_filter
+    join_keys:
+      - calendar_date
+      - location_code
+control_dependencies:
+  - CTRL_FILE_REGISTRY
+  - CTRL_RULE_HISTORY
+  - CTRL_DQ_EXCEPTION
+recompute_scope:
+  trigger: accepted source batch, mapping change, or opening-hour override
+  window: impacted business_date and analytics_entity_code only

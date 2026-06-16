@@ -1,0 +1,13 @@
+rule_id: DQ_STG_001
+rule_name: required_columns_present
+layer: STG
+severity: error
+description: Every contract-required column must exist before a source batch enters typed staging.
+inputs:
+  - metadata/source_contracts/*.yml
+  - samples/input/*.csv
+failure_record:
+  business_key: source_name
+  detected_value: missing column list
+  expected_condition: all required columns present
+owner: source_owner

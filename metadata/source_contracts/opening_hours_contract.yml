@@ -1,0 +1,23 @@
+contract_id: SRC_OPENING_HOURS_V1
+contract_version: 1
+source_name: opening_hours
+sample_file: samples/input/opening_hours.csv
+delivery_pattern: governed_reference_extract
+analytical_priority: control
+schema_drift_policy: quarantine_breaking_change_register_additive
+required_columns:
+  - calendar_date
+  - location_code
+  - open_time
+  - close_time
+  - rule_source
+  - is_exception
+optional_columns: []
+expected_types:
+  calendar_date: date
+key_columns:
+  - calendar_date
+  - location_code
+duplicate_policy: latest_rule_source_wins_after_owner_review
+late_arrival_policy: restate_impacted_business_date_and_location
+quarantine_policy: reject_missing_date_location_or_time_window

@@ -1,11 +1,14 @@
 _archive/
 _prompt/
+_prompt_/
 _quarantine/
 Backbone_Story-Telling_Board_enterprise-analytics-platform-rearchitecture.md
 __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+htmlcov/
 .venv/
 venv/
 *.pyc

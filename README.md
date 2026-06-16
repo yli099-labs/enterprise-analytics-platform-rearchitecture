@@ -6,6 +6,8 @@ The project was not only a database migration or performance tuning exercise. Th
 
 The redesign introduced a layered operating model, lifecycle-aware processing, clearer curated grains, source prioritization, governed rule history, stronger failure boundaries, and AI-readable metadata patterns.
 
+This repository is intentionally not a fake production system. It is a public-safe architecture case study supported by representative implementation patterns using synthetic data.
+
 ## Five-Minute Review Path
 
 1. Read [Problem Statement](docs/01_problem_statement.md).
@@ -15,6 +17,42 @@ The redesign introduced a layered operating model, lifecycle-aware processing, c
 5. Read [Trade-Offs](docs/09_tradeoffs.md).
 6. Read [AI-Ready Layer](docs/08_ai_ready_layer.md).
 7. Review the [implementation roadmap](docs/10_implementation_roadmap.md).
+8. Run the lightweight proof layer below.
+
+## Lightweight Proof Layer
+
+The repository now includes a thin evidence pack so the architecture is supported by executable examples:
+
+- synthetic inputs and expected outputs under [samples](samples/);
+- source contracts, DQ rules, semantic definitions, and lineage metadata under [metadata](metadata/);
+- representative SQL patterns under [src/sql](src/sql/);
+- small Python validators under [src/python](src/python/);
+- pytest checks under [tests](tests/).
+
+Run from the repository root:
+
+```bash
+python -m pip install -r requirements.txt
+python src/python/validate_source_contract.py
+python src/python/detect_schema_drift.py
+python src/python/check_effective_date_overlap.py
+python src/python/generate_file_registry.py --output samples/expected_output/file_registry_example.csv
+pytest
+```
+
+The scripts are deliberately small. They prove that contracts, schema drift, file registry evidence, effective-date rule validation, and curated-output grain checks can be operationalized without turning this case study into a full synthetic warehouse product.
+
+## Evidence Map
+
+| Claim | Evidence |
+| --- | --- |
+| Source contracts are explicit | [metadata/source_contracts](metadata/source_contracts/) |
+| Schema drift is observable | [src/python/detect_schema_drift.py](src/python/detect_schema_drift.py) and [samples/input/survey_response_v2_schema_changed.csv](samples/input/survey_response_v2_schema_changed.csv) |
+| Manual rules are history-managed | [src/sql/04_ctrl_rule_history_scd2.sql](src/sql/04_ctrl_rule_history_scd2.sql) and [samples/expected_output/rule_history_example.csv](samples/expected_output/rule_history_example.csv) |
+| Curated outputs have stable grain | [src/sql/05_curated_daily_visitorship.sql](src/sql/05_curated_daily_visitorship.sql) and [tests/test_curated_output_grain.py](tests/test_curated_output_grain.py) |
+| DQ is executable | [metadata/dq_rules](metadata/dq_rules/) and [tests](tests/) |
+| AI-readiness is metadata-driven | [metadata/semantic_definitions](metadata/semantic_definitions/) and [metadata/lineage](metadata/lineage/) |
+| File arrivals are controlled evidence | [src/python/generate_file_registry.py](src/python/generate_file_registry.py) and [samples/expected_output/file_registry_example.csv](samples/expected_output/file_registry_example.csv) |
 
 ## Story Spine
 
@@ -90,6 +128,11 @@ The more important result was reliability. The platform became less dependent on
 - [10 Implementation Roadmap](docs/10_implementation_roadmap.md) - phased delivery plan.
 - [Diagrams](diagrams/) - Mermaid diagrams for the architecture and operating model.
 - [Assets](assets/) - public-safe templates for contracts, semantic outputs, DQ rules, and lifecycle policy.
+- [Metadata](metadata/) - concrete source contracts, DQ rules, lineage, and semantic definitions.
+- [Samples](samples/) - synthetic input and expected output examples.
+- [SQL Patterns](src/sql/) - representative public-safe implementation patterns.
+- [Python Validators](src/python/) - lightweight executable proof scripts.
+- [Tests](tests/) - pytest coverage for contract checks, drift detection, date-window DQ, and curated grain.
 
 ## Confidentiality Note
 

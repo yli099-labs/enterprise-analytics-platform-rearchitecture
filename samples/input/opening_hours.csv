@@ -1,0 +1,5 @@
+calendar_date,location_code,open_time,close_time,rule_source,is_exception
+2026-01-05,LOC-01,09:00,18:00,baseline,N
+2026-01-05,LOC-02,09:00,18:00,baseline,N
+2026-01-06,LOC-01,09:00,18:00,baseline,N
+2026-01-06,LOC-02,10:00,16:00,maintenance_window,Y

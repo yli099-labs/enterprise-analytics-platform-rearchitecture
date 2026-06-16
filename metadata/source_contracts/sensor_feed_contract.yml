@@ -1,0 +1,28 @@
+contract_id: SRC_SENSOR_COUNTS_V1
+contract_version: 1
+source_name: sensor_counts
+sample_file: samples/input/sensor_counts.csv
+delivery_pattern: rolling_intraday_file
+analytical_priority: core
+schema_drift_policy: quarantine_breaking_change_register_additive
+required_columns:
+  - source_file_name
+  - batch_id
+  - sensor_id
+  - count_ts
+  - business_date
+  - location_code
+  - direction
+  - count_value
+optional_columns: []
+expected_types:
+  count_ts: timestamp
+  business_date: date
+  count_value: integer
+key_columns:
+  - sensor_id
+  - count_ts
+  - direction
+duplicate_policy: latest_file_receipt_wins
+late_arrival_policy: targeted_recompute_by_business_date_and_location
+quarantine_policy: reject_missing_required_or_negative_count

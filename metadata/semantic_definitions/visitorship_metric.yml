@@ -1,0 +1,23 @@
+semantic_object: SEM_DAILY_VISITORSHIP
+curated_source: CUR_DAILY_VISITORSHIP
+grain:
+  - business_date
+  - analytics_entity_code
+measures:
+  total_visitors:
+    definition: Sum of accepted inbound sensor counts mapped to the analytics entity.
+    allowed_aggregation: sum
+    quality_gate: DQ_CUR_001
+  open_hours_visitors:
+    definition: Sum of accepted inbound sensor counts inside approved opening-hour windows.
+    allowed_aggregation: sum
+    quality_gate: DQ_CUR_001
+dimensions:
+  - business_date
+  - analytics_entity_code
+  - dq_status
+source_dependencies:
+  - SRC_SENSOR_COUNTS_V1
+  - SRC_MANUAL_MAPPING_V1
+  - SRC_OPENING_HOURS_V1
+ai_readiness_note: Assistants may explain lineage and DQ state from metadata, not private raw records.

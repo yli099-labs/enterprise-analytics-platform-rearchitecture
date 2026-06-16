@@ -1,0 +1,12 @@
+rule_id: DQ_CTRL_001
+rule_name: effective_date_overlap
+layer: CTRL
+severity: error
+description: Active manual mappings must not overlap for the same business key and source value.
+inputs:
+  - samples/input/manual_mapping_current.csv
+failure_record:
+  business_key: business_key and source_value
+  detected_value: overlapping mapping IDs
+  expected_condition: non-overlapping active effective windows
+owner: business_owner

@@ -1,0 +1,7 @@
+registry_id,source_name,contract_id,relative_path,file_hash,row_count,column_count,schema_status,registered_at
+REG_851C7BF89C,manual_mapping,SRC_MANUAL_MAPPING_V1,samples/input/manual_mapping_current.csv,82C303E55C3A8CAB,5,8,contract_match,2026-06-16T00:00:00
+REG_FF646D555B,opening_hours,SRC_OPENING_HOURS_V1,samples/input/opening_hours.csv,20DE9C54E0C9CC47,4,6,contract_match,2026-06-16T00:00:00
+REG_A09038873E,sensor_counts,SRC_SENSOR_COUNTS_V1,samples/input/sensor_counts.csv,2D9B90B051A9F8FE,5,8,contract_match,2026-06-16T00:00:00
+REG_8846ADC2C2,survey_workbook,SRC_SURVEY_WORKBOOK_V1,samples/input/survey_response_v1.csv,993C91CE48AA2216,3,7,contract_match,2026-06-16T00:00:00
+REG_7CFA19CC1A,survey_workbook,SRC_SURVEY_WORKBOOK_V1,samples/input/survey_response_v2_schema_changed.csv,537BD1D3D8A226A2,2,8,drift_observed,2026-06-16T00:00:00
+REG_C7B361B8D7,transaction_events,SRC_TXN_EVENTS_V1,samples/input/transaction_events.csv,942CEF1E4FA788D4,5,11,contract_match,2026-06-16T00:00:00

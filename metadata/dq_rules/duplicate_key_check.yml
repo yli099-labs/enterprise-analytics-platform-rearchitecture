@@ -1,0 +1,13 @@
+rule_id: DQ_TXN_001
+rule_name: duplicate_natural_key
+layer: STG
+severity: warning
+description: Deterministic natural keys should be unique at the declared source grain unless contract policy allows replay replacement.
+inputs:
+  - metadata/source_contracts/transaction_feed_contract.yml
+  - samples/input/transaction_events.csv
+failure_record:
+  business_key: event_id and line_id
+  detected_value: duplicate key count
+  expected_condition: one accepted current row per event line
+owner: platform_owner

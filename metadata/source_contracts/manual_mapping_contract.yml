@@ -1,0 +1,25 @@
+contract_id: SRC_MANUAL_MAPPING_V1
+contract_version: 1
+source_name: manual_mapping
+sample_file: samples/input/manual_mapping_current.csv
+delivery_pattern: business_owned_current_state_extract
+analytical_priority: control
+schema_drift_policy: quarantine_breaking_change_register_additive
+required_columns:
+  - mapping_id
+  - business_key
+  - source_value
+  - target_value
+  - effective_from
+  - effective_to
+  - is_active
+  - updated_at
+optional_columns: []
+expected_types:
+  effective_from: date
+  updated_at: timestamp
+key_columns:
+  - mapping_id
+duplicate_policy: mapping_id_unique
+late_arrival_policy: rebuild_rule_history_for_impacted_business_key
+quarantine_policy: reject_invalid_dates_or_overlapping_active_windows

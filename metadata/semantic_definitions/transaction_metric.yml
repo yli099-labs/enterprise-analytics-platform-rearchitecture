@@ -1,0 +1,21 @@
+semantic_object: SEM_TRANSACTION_ACTIVITY
+curated_source: CUR_TRANSACTION_EVENT
+grain:
+  - event_hash_key
+measures:
+  transaction_count:
+    definition: Count of unique accepted transaction event lines after duplicate handling.
+    allowed_aggregation: count
+    quality_gate: DQ_TXN_001
+  net_amount:
+    definition: Net transaction amount after source-standardization and duplicate handling.
+    allowed_aggregation: sum
+    quality_gate: DQ_STG_001
+dimensions:
+  - business_date
+  - product_code
+  - ticket_type
+  - source_status
+source_dependencies:
+  - SRC_TXN_EVENTS_V1
+ai_readiness_note: The semantic layer exposes approved business fields over curated data only.
